@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#efe3c6">
+  <meta name="description" content="A small, personal invitation and questionnaire.">
+  <title>A Little Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="site-shell">
+    <div class="map-decoration map-decoration--top" aria-hidden="true"></div>
+    <div class="map-decoration map-decoration--bottom" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img">
+          <circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width="1.4" />
+          <circle cx="24" cy="24" r="3" fill="currentColor" />
+          <path d="M24 5 28 20 43 24 28 28 24 43 20 28 5 24 20 20Z" fill="none" stroke="currentColor" stroke-width="1.2" />
+          <path d="m24 10 2.8 11.2L38 24l-11.2 2.8L24 38l-2.8-11.2L10 24l11.2-2.8Z" fill="currentColor" opacity=".18" />
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow">A LITTLE ADVENTURE</p>
+        <p class="header-subtitle">One page at a time</p>
+      </div>
+      <div class="header-stamp" aria-hidden="true">✦</div>
+    </header>
+
+    <section class="paper-card" aria-live="polite">
+      <div class="card-topline">
+        <span class="route-label"><span class="route-dot"></span> THE TREASURE TRAIL</span>
+        <span class="route-number" id="route-number">START</span>
+      </div>
+
+      <!-- Page 1: Welcome -->
+      <section class="page is-active" id="page-welcome" data-page="welcome">
+        <div class="illustration compass-illustration" aria-hidden="true">
+          <svg viewBox="0 0 120 100">
+            <circle cx="60" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="60" cy="50" r="28" fill="none" stroke="currentColor" stroke-dasharray="2 4" stroke-width="1" />
+            <path d="M60 17 68 47 96 50 68 53 60 83 52 53 24 50 52 47Z" fill="#a97939" opacity=".85" />
+            <path d="m60 25 5 22-5 3-5-3Z" fill="#f8f0df" />
+            <path d="m60 75-5-22 5-3 5 3Z" fill="#76542f" />
+            <circle cx="60" cy="50" r="4" fill="#f8f0df" stroke="#76542f" stroke-width="1" />
+            <text x="60" y="9" text-anchor="middle">N</text>
+          </svg>
+        </div>
+        <p class="eyebrow page-kicker">BEFORE WE BEGIN</p>
+        <h1>Are you ready?</h1>
+        <p class="lead">Do you want to proceed with this little form?</p>
+        <div class="welcome-actions">
+          <button class="button button-primary button-wide" id="welcome-proceed" type="button">Proceed <span aria-hidden="true">→</span></button>
+          <div class="no-play-area" id="no-play-area">
+            <button class="button button-quiet no-dodge-button" id="welcome-no" type="button">No</button>
+          </div>
+        </div>
+        <p class="tiny-note" id="no-hint">Just a little question before the adventure begins.</p>
+      </section>
+
+      <!-- Page 2: Apology -->
+      <section class="page" id="page-apology" data-page="apology" hidden>
+        <div class="illustration scroll-illustration" aria-hidden="true">✉</div>
+        <p class="eyebrow page-kicker">A SMALL MESSAGE</p>
+        <h1>Before we begin...</h1>
+        <p class="body-copy">Long story short, I've had a lot going on recently, and I've also been caught up with my exams. But now, I only have one paper left.</p>
+        <p class="sorry-line">I'm sorry. <span aria-label="bowing person">🙇‍♂️</span></p>
+        <div class="page-footer page-footer--next-only">
+          <button class="button button-arrow" id="apology-next" type="button" aria-label="Next page">→</button>
+        </div>
+      </section>
+
+      <!-- Page 3: Full name -->
+      <section class="page" id="page-name" data-page="name" hidden>
+        <div class="illustration pin-illustration" aria-hidden="true">⌖</div>
+        <p class="eyebrow page-kicker">QUESTION 01</p>
+        <h1>Let's start with something simple.</h1>
+        <p class="body-copy">I just realised I didn't even know your full name until recently. So, let me ask properly...</p>
+        <form id="name-form" novalidate>
+          <label class="field-label" for="full-name">What's your full name?</label>
+          <input class="text-input" id="full-name" name="full_name" type="text" maxlength="120" autocomplete="name" placeholder="Enter your full name" required>
+          <p class="field-error" id="name-error" role="alert"></p>
+          <div class="page-footer">
+            <span class="footer-hint">A name to put on the map</span>
+            <button class="button button-primary" type="submit">Continue <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Page 4: Recent days -->
+      <section class="page" id="page-days" data-page="days" hidden>
+        <div class="illustration letter-illustration" aria-hidden="true">☼</div>
+        <p class="eyebrow page-kicker">QUESTION 02</p>
+        <h1>How have you been?</h1>
+        <p class="body-copy">How have your days been lately? I'd genuinely like to hear more about how you've been doing.</p>
+        <form id="days-form" novalidate>
+          <label class="field-label" for="recent-days">Tell me a little about it</label>
+          <textarea class="text-input text-area" id="recent-days" name="recent_days" maxlength="2000" rows="5" placeholder="Write whatever you'd like to share..."></textarea>
+          <div class="page-footer">
+            <span class="footer-hint">Share as much or as little as you like</span>
+            <button class="button button-primary" type="submit">Continue <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Page 5: Dinner invitation -->
+      <section class="page" id="page-invitation" data-page="invitation" hidden>
+        <div class="illustration dinner-illustration" aria-hidden="true">✧</div>
+        <p class="eyebrow page-kicker">A SPECIAL INVITATION</p>
+        <h1>How about this Friday?</h1>
+        <p class="body-copy">I heard there's a restaurant promotion at Sunway Velocity that you might like. Would you be interested in having dinner with me this Friday, 27 November?</p>
+        <div class="invitation-actions">
+          <button class="button button-primary invitation-choice" id="invite-yes" type="button">Yes! Let's go!</button>
+          <button class="button button-secondary invitation-choice" id="invite-interested" type="button">I'm interested, but...</button>
+          <div class="no-choice-row">
+            <button class="button button-quiet invitation-no" id="invite-no" type="button">No</button>
+          </div>
+        </div>
+        <p class="tiny-note">No pressure — just let me know what feels right.</p>
+      </section>
+
+      <!-- Page 6: Transport choice -->
+      <section class="page" id="page-transport" data-page="transport" hidden>
+        <div class="illustration path-illustration" aria-hidden="true">⌁</div>
+        <p class="eyebrow page-kicker">LET'S PLAN THE DETAILS</p>
+        <h1>How would you prefer to get there?</h1>
+        <p class="body-copy">Choose whichever option is more convenient for you.</p>
+        <div class="choice-stack">
+          <button class="choice-card" id="choose-pickup" type="button">
+            <span class="choice-icon" aria-hidden="true">⌂</span>
+            <span class="choice-copy"><strong>I'll pick you up</strong><small>I'll pick you up after you finish work.</small></span>
+            <span class="choice-chevron" aria-hidden="true">→</span>
+          </button>
+          <button class="choice-card" id="choose-meet" type="button">
+            <span class="choice-icon" aria-hidden="true">⚑</span>
+            <span class="choice-copy"><strong>I'll meet you there</strong><small>I'll make my own way there and meet you at the restaurant.</small></span>
+            <span class="choice-chevron" aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p class="tiny-note">Tap one option to continue.</p>
+      </section>
+
+      <!-- Page 7A: Pickup time -->
+      <section class="page" id="page-pickup-time" data-page="pickup-time" hidden>
+        <div class="illustration clock-illustration" aria-hidden="true">◷</div>
+        <p class="eyebrow page-kicker">PICK-UP ARRANGEMENT</p>
+        <h1>I'll pick you up.</h1>
+        <p class="body-copy">What time do you finish work? I'll plan around your timing.</p>
+        <form id="pickup-form" novalidate>
+          <label class="field-label" for="work-finish-time">What time do you finish work?</label>
+          <input class="text-input time-input" id="work-finish-time" name="work_finish_time" type="time" required>
+          <p class="field-error" id="pickup-error" role="alert"></p>
+          <div class="page-footer">
+            <span class="footer-hint">Your preferred pick-up time</span>
+            <button class="button button-primary" id="pickup-submit" type="submit">Submit <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+        <p class="save-status" id="pickup-status" role="status"></p>
+      </section>
+
+      <!-- Page 7B: Meet there time -->
+      <section class="page" id="page-meet-time" data-page="meet-time" hidden>
+        <div class="illustration clock-illustration" aria-hidden="true">◷</div>
+        <p class="eyebrow page-kicker">MEETING ARRANGEMENT</p>
+        <h1>I'll meet you there.</h1>
+        <p class="body-copy">What time would you like to meet for dinner?</p>
+        <form id="meet-form" novalidate>
+          <label class="field-label" for="preferred-meeting-time">Your preferred meeting time</label>
+          <input class="text-input time-input" id="preferred-meeting-time" name="preferred_meeting_time" type="time" required>
+          <p class="field-error" id="meet-error" role="alert"></p>
+          <div class="page-footer">
+            <span class="footer-hint">Your preferred dinner time</span>
+            <button class="button button-primary" id="meet-submit" type="submit">Submit <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+        <p class="save-status" id="meet-status" role="status"></p>
+      </section>
+
+      <!-- Interested branch -->
+      <section class="page" id="page-reason" data-page="reason" hidden>
+        <div class="illustration letter-illustration" aria-hidden="true">✉</div>
+        <p class="eyebrow page-kicker">NO PRESSURE</p>
+        <h1>That's alright!</h1>
+        <p class="body-copy">Could you tell me what the reason is? I'd appreciate it if you could share your thoughts with me.</p>
+        <form id="reason-form" novalidate>
+          <label class="field-label" for="interested-reason">What's on your mind?</label>
+          <textarea class="text-input text-area" id="interested-reason" name="interested_reason" maxlength="2000" rows="5" placeholder="Tell me what's on your mind..." required></textarea>
+          <p class="field-error" id="reason-error" role="alert"></p>
+          <div class="page-footer">
+            <span class="footer-hint">Thank you for being honest</span>
+            <button class="button button-primary" id="reason-submit" type="submit">Submit <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+        <p class="save-status" id="reason-status" role="status"></p>
+      </section>
+
+      <!-- Confirmation shown after the first No click on the dinner invitation -->
+      <dialog class="no-confirm-dialog" id="no-confirm-dialog" aria-labelledby="no-confirm-title" aria-describedby="no-confirm-message">
+        <div class="no-confirm-content">
+          <div class="no-confirm-emoji" aria-hidden="true">😢</div>
+          <p class="eyebrow page-kicker">ONE LAST CHECK</p>
+          <h2 id="no-confirm-title">Ouch... saying no that quickly?</h2>
+          <p class="body-copy" id="no-confirm-message">Are you sure you'd like to say no? No pressure — I just wanted to double-check.</p>
+          <div class="no-confirm-actions">
+            <button class="button button-secondary" id="no-confirm-cancel" type="button">Let me think again</button>
+            <button class="button button-primary" id="no-confirm-final" type="button">No, I'm sure</button>
+          </div>
+        </div>
+      </dialog>
+
+      <!-- End states -->
+      <section class="page end-page" id="page-goodbye-no" data-page="goodbye-no" hidden>
+        <div class="illustration end-illustration" aria-hidden="true">♡</div>
+        <p class="eyebrow page-kicker">THANK YOU</p>
+        <h1>Thank you for replying!</h1>
+        <p class="body-copy">Bye, have a nice day! 😊</p>
+        <p class="save-status" id="no-status" role="status"></p>
+      </section>
+
+      <section class="page end-page" id="page-goodbye-start" data-page="goodbye-start" hidden>
+        <div class="illustration end-illustration" aria-hidden="true">✦</div>
+        <p class="eyebrow page-kicker">UNTIL NEXT TIME</p>
+        <h1>No worries!</h1>
+        <p class="body-copy">Thanks for stopping by. Have a lovely day!</p>
+      </section>
+
+      <section class="page end-page" id="page-complete" data-page="complete" hidden>
+        <div class="illustration end-illustration" aria-hidden="true">✧</div>
+        <p class="eyebrow page-kicker">MESSAGE RECEIVED</p>
+        <h1 id="complete-title">Thank you!</h1>
+        <p class="body-copy" id="complete-message">Your response has been submitted.</p>
+        <p class="save-status" id="complete-status" role="status"></p>
+      </section>
+
+      <footer class="paper-footer">
+        <span>✦</span>
+        <span>MADE WITH A LITTLE THOUGHT</span>
+        <span>✦</span>
+      </footer>
+    </section>
+
+    <p class="outside-note">A small note: your answers will be stored for the form owner to review.</p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
